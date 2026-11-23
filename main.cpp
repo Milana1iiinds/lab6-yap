@@ -4,12 +4,16 @@
 
 using namespace std;
 
+bool isEnd(char c) {
+    return c == '.' || c == '!' || c == '?';
+}
+
 vector<string> splitSentences(const string& text) {
     vector<string> sentences;
     string current;
     for (size_t i = 0; i < text.size(); i++) {
         current += text[i];
-        if (text[i] == '.') {
+        if (isEnd(text[i])) {
             sentences.push_back(current);
             current = "";
         }
